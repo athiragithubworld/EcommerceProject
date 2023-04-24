@@ -6,7 +6,18 @@ import { Navbar, Button, Nav  } from "react-bootstrap";
 import classes from "./Ecommerce.module.css";
 import ProductList from "./ProductList";
 
-const Ecommerce = () => {
+const Ecommerce = (props) => {
+
+  console.log("props",props.items);
+
+  let quantity = 3;
+  
+  // props.items.forEach(item => {
+    
+  //   quantity = quantity + parseInt(item.quantity);
+    
+  // });
+
   return (
     <>
       {/* --------------------Top NavBar ------------------------------- */}
@@ -25,10 +36,11 @@ const Ecommerce = () => {
         </Container>
 
         <Nav>
-        <Button variant="outline-info" className={classes.button}>
+        <Button variant="outline-info" className={classes.button} onClick={props.onClick}>
+          {console.log("111")}
           Cart
         </Button>
-        <span className={classes.totalAmount}> 0 </span>
+        <span className={classes.totalAmount}> {quantity} </span>
         </Nav>
       </Navbar>
 
