@@ -1,0 +1,16 @@
+.alert {
+  position: fixed;
+  bottom: 2rem;
+  right: 5rem;
+  padding: 30px;
+  /* margin-left:5rem ; */
+  font-weight: bold;
+  text-align: center;
+  background-color: deepskyblue;
+  color: black;
+  font-size: 10px;
+}
+
+.name {
+  color: red;
+}
