@@ -1,22 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
-// import Nav from 'react-bootstrap/Nav';
-import { Navbar, Button, Nav  } from "react-bootstrap";
-
+import { Navbar, Button, Nav } from "react-bootstrap";
 import classes from "./Ecommerce.module.css";
 import ProductList from "./ProductList";
+import CartContext from "./store/CartContext";
 
 const Ecommerce = (props) => {
-
-  console.log("props",props.items);
-
-  let quantity = 3;
-  
-  // props.items.forEach(item => {
-    
-  //   quantity = quantity + parseInt(item.quantity);
-    
-  // });
+  const cartctx = useContext(CartContext);
 
   return (
     <>
@@ -36,45 +26,64 @@ const Ecommerce = (props) => {
         </Container>
 
         <Nav>
-        <Button variant="outline-info" className={classes.button} onClick={props.onClick}>
-          {console.log("111")}
-          Cart
-        </Button>
-        <span className={classes.totalAmount}> {quantity} </span>
+          <Button
+            variant="outline-info"
+            className={classes.button}
+            onClick={props.onClick}
+          >
+            Cart
+          </Button>
+          <span className={classes.totalAmount}> {cartctx.quantity} </span>
         </Nav>
       </Navbar>
 
       <br />
       {/* ----------Second Navbar ---------------- */}
 
-      <Navbar expand="xxl"  bg="secondary" variant="dark" className={classes.navbar2}
-       style={{ justifyContent: "center" }}>
+      <Navbar
+        expand="xxl"
+        bg="secondary"
+        variant="dark"
+        className={classes.navbar2}
+        style={{ justifyContent: "center" }}
+      >
         The Generics
       </Navbar>
 
       {/* ---------------------------Show Product Items--------------------------- */}
 
-      {/* <div style={{maxWidth:"900px" , margin:"0 auto" , padding:"20px 30px"}}> */}
       <Container>
-        
-      <h2 
-        style={{
-          fontFamily: "MetalMania",
-          fontWeight: "bold",
-          marginTop: 40,
-          textAlign: "center",
-        }}
-      > MUSIC
-      </h2>
-      
-      <ProductList></ProductList>
-      
+        <h2
+          style={{
+            fontFamily: "MetalMania",
+            fontWeight: "bold",
+            marginTop: 40,
+            textAlign: "center",
+          }}
+        >
+          {" "}
+          MUSIC
+        </h2>
+
+        <ProductList></ProductList>
       </Container>
       <div>
-      <Button variant="secondary" style={{marginTop:"100px" , 
-      textAlign: "center",marginLeft:"680px" , fontSize:"15px" , 
-      fontWeight:"bold",padding:"10px" , color:"rgb(0, 200, 255)"
-      }}> See the Cart</Button>
+        <Button
+          variant="secondary"
+          style={{
+            marginTop: "100px",
+            textAlign: "center",
+            marginLeft: "680px",
+            fontSize: "15px",
+            fontWeight: "bold",
+            padding: "10px",
+            color: "rgb(0, 200, 255)",
+          }}
+          onClick={props.onClick}
+        >
+          {" "}
+          See the Cart
+        </Button>
       </div>
 
       {/*------------ Bottom Navbar--------------- */}
@@ -94,9 +103,8 @@ const Ecommerce = (props) => {
           textAlign: "center",
         }}
       >
-        <Nav>  The Generics </Nav>
-        
-       
+        <Nav> The Generics </Nav>
+
         <Nav>
           <Container
             style={{
