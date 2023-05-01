@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import Cart from "./Components/Cart/Cart";
 import CartContext from "./Components/store/CartContext";
 import CartProvider from "./Components/store/CartProvider";
+import About from "./Components/Pages/About";
 
 
 // import ProductList from "./Components/ProductList";
@@ -22,12 +23,17 @@ function App() {
     setOpenCart(false)
     }
 
+    
+
+
+
   return (
     <CartProvider>
 
       <Ecommerce onClick={clickOpenCart}></Ecommerce>
       {openCart && <Cart onClose={closeCart}></Cart>}
-      
+    
+    
      
     </CartProvider>
   );
