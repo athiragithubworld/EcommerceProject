@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
-import Container from "react-bootstrap/Container";
-import { Navbar, Button, Nav } from "react-bootstrap";
+import { Navbar, Button, Nav, Container } from "react-bootstrap";
 import classes from "./Ecommerce.module.css";
-import ProductList from "./ProductList";
+
 import CartContext from "./store/CartContext";
+// import FooterNavBar from "./UI/FooterNavBar";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import About from "./Pages/About";
+import Home from "./Pages/Home";
+import Store from "./Pages/Store";
 
 const Ecommerce = (props) => {
   const cartctx = useContext(CartContext);
@@ -11,33 +15,35 @@ const Ecommerce = (props) => {
   return (
     <>
       {/* --------------------Top NavBar ------------------------------- */}
+      <Router>
+        <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+          <Container style={{ justifyContent: "center" }}>
+            <Nav.Link as={Link} to={"/home"} style={{color:'white' , fontSize:'20px' , position:'fixed',left:'30rem'}}>
+              HOME
+            </Nav.Link>
+            <Nav.Link as={Link} to={"/"} style={{color:'white' , fontSize:'20px' ,position:'fixed',left:'40rem'}}>
+              STORE
+            </Nav.Link>
+            <Nav.Link as={Link} to={"/about"} style={{color:'white' , fontSize:'20px' , position:'fixed',left:'50rem'}}>
+              ABOUT
+            </Nav.Link>
+          </Container>
 
-      <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-        <Container style={{ justifyContent: "center" }}>
-          <Navbar.Brand href="#home" className={classes.home}>
-            HOME
-          </Navbar.Brand>
-          <Navbar.Brand href="#store" className={classes.store}>
-            STORE
-          </Navbar.Brand>
-          <Navbar.Brand href="#about" className={classes.about}>
-            ABOUT
-          </Navbar.Brand>
-        </Container>
+          <Nav>
+            <Button
+              variant="outline-info"
+              className={classes.button}
+              onClick={props.onClick}
+            >
+              Cart
+            </Button>
+            <span className={classes.totalAmount}> {cartctx.quantity} </span>
+          </Nav>
+        </Navbar>
 
-        <Nav>
-          <Button
-            variant="outline-info"
-            className={classes.button}
-            onClick={props.onClick}
-          >
-            Cart
-          </Button>
-          <span className={classes.totalAmount}> {cartctx.quantity} </span>
-        </Nav>
-      </Navbar>
+        <br/>
 
-      <br />
+      
       {/* ----------Second Navbar ---------------- */}
 
       <Navbar
@@ -50,9 +56,17 @@ const Ecommerce = (props) => {
         The Generics
       </Navbar>
 
+      <div>
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Store />} />
+          </Routes>
+        </div>
+      </Router>
       {/* ---------------------------Show Product Items--------------------------- */}
 
-      <Container>
+      {/* <Container>
         <h2
           style={{
             fontFamily: "MetalMania",
@@ -84,7 +98,7 @@ const Ecommerce = (props) => {
           {" "}
           See the Cart
         </Button>
-      </div>
+      </div> */}
 
       {/*------------ Bottom Navbar--------------- */}
 
@@ -94,13 +108,14 @@ const Ecommerce = (props) => {
         expand="lg"
         style={{
           color: "white",
-          fontSize: "50px",
+          fontSize: "30px",
           fontWeight: "bold",
           fontFamily: "Times New Roman, Times, serif ",
           paddingLeft: "100px",
           position: "bottom",
           marginTop: "200px",
           textAlign: "center",
+          
         }}
       >
         <Nav> The Generics </Nav>
