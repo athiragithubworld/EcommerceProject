@@ -1,0 +1,29 @@
+/* .button{
+    /* font-display: white; */
+    /* color: white;
+    position: absolute;
+    top:20px;
+    right: 20px;
+    z-index: 1;
+    /* margin-right: -15px; */
+    /* padding:.5px; */
+    /* padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px; */
+    /* border-width: 2px;    */ 
+   
+/* } */
+ 
+
+
+
+.totalAmount{
+    color:deepskyblue;
+    /* rgb(28, 191, 245) */
+    font-size:22px;
+    margin-top:-15px;
+    margin-inline:1rem;
+    font-family:'Times New Roman', Times, serif;
+
+}
