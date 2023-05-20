@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Navbar, Button, Nav, Container } from "react-bootstrap";
-import classes from "./MainHomeHeader.module.css"
+import classes from "./MainHomeHeader.module.css";
 
 import CartContext from "../store/CartContext";
 
@@ -27,57 +27,69 @@ const MainHomeHeader = (props) => {
       <Navbar
         bg="dark"
         variant="dark"
-        // expand="lg"
         sticky="top"
-        style={{ width: "100%" , position:"fixed" }}
+        style={{ width: "100%", position: "fixed" }}
       >
         <Container
           style={{
-            justifyContent: "center",
-            marginTop: "15px",
-            marginBottom: "20px",
+            width: "50%",
           }}
         >
-          <Nav.Link
-            // onClick={showButtonHandler}
-            as={NavLink}
-            to={"/home"}
-            style={{
-              color: "white",
-              fontSize: "20px",
-              position: "fixed",
-              left: "30rem",
-              
-            }}
-          >
-            HOME
-          </Nav.Link>
-          <Nav.Link
-            // onClick={showButtonHandlerInStore}
-            as={NavLink}
-            to={"/"}
-            style={{
-              color: "white",
-              fontSize: "20px",
-              position: "fixed",
-              left: "40rem",
-            }}
-          >
-            STORE
-          </Nav.Link>
-          <Nav.Link
-            // onClick={showButtonHandler}
-            as={NavLink}
-            to={"/about"}
-            style={{
-              color: "white",
-              fontSize: "20px",
-              position: "fixed",
-              left: "50rem",
-            }}
-          >
-            ABOUT
-          </Nav.Link>
+          <Navbar.Collapse className="justify-content-center">
+            <Nav.Link
+              as={NavLink}
+              to={"/home"}
+              style={{
+                color: "white",
+                fontSize: "20px",
+              }}
+            >
+              HOME
+            </Nav.Link>
+          </Navbar.Collapse>
+
+          <Navbar.Collapse className="justify-content-center">
+            <Nav.Link
+              as={NavLink}
+              to={"/"}
+              style={{
+                color: "white",
+                fontSize: "20px",
+              }}
+            >
+              STORE
+            </Nav.Link>
+          </Navbar.Collapse>
+
+          <Navbar.Collapse className="justify-content-center">
+            <Nav.Link
+              as={NavLink}
+              to={"/about"}
+              style={{
+                color: "white",
+                fontSize: "20px",
+                // position: "fixed",
+                // left: "50rem",
+              }}
+            >
+              ABOUT
+            </Nav.Link>
+          </Navbar.Collapse>
+
+          <Navbar.Collapse className="justify-content-center">
+            <Nav.Link
+              as={NavLink}
+              to={"/contactus"}
+              style={{
+                color: "white",
+                fontSize: "20px",
+                // position: "fixed",
+                // left: "50rem",
+              }}
+            >
+              Contact US
+            </Nav.Link>
+          </Navbar.Collapse>
         </Container>
 
         <Nav>
