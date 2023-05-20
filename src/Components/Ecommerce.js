@@ -1,7 +1,7 @@
-import React,{useState} from 'react'
-import MainHomeHeader from './UI/MainHomeHeader'
-import HomeHeader from './UI/HomeHeader'
-import Cart from './Cart/Cart';
+import React, { useState } from "react";
+import MainHomeHeader from "./UI/MainHomeHeader";
+import HomeHeader from "./UI/HomeHeader";
+import Cart from "./Cart/Cart";
 
 const Ecommerce = (props) => {
   const [openCart, setOpenCart] = useState(false);
@@ -16,12 +16,11 @@ const Ecommerce = (props) => {
 
   return (
     <div>
-      <MainHomeHeader onClick={clickOpenCart}/>
-      <HomeHeader/>
+      <MainHomeHeader onClick={clickOpenCart} />
+      {/* <HomeHeader/> */}
       {openCart && <Cart onClose={closeCart}></Cart>}
-      
     </div>
-  )
-}
+  );
+};
 
-export default Ecommerce
+export default Ecommerce;
