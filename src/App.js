@@ -7,11 +7,12 @@ import CartContext from "./Components/store/CartContext";
 import CartProvider from "./Components/store/CartProvider";
 import About from "./Components/Pages/About";
 import ProductStore from "./Components/Pages/ProductStore";
-import { BrowserRouter } from "react-router-dom";
+// import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Pages/Home";
 import FooterNavBar from "./Components/UI/FooterNavBar";
 import HomeHeader from "./Components/UI/HomeHeader";
+import ContactUs from "./Components/Pages/ContactUs";
 
 // import ProductList from "./Components/ProductList";
 
@@ -28,17 +29,18 @@ function App() {
 
   return (
     <CartProvider>
-      <BrowserRouter>
-        <Ecommerce />
-        {/* <HomeHeader></HomeHeader> */}
-        <Routes>
-          <Route path="/about" element={<About />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<ProductStore onClicks={clickOpenCart} />}  />
-        </Routes>
-        <FooterNavBar></FooterNavBar>
-        {openCart && <Cart onClose={closeCart}></Cart>}
-      </BrowserRouter>
+      {/* <BrowserRouter> */}
+      <Ecommerce />
+      <HomeHeader></HomeHeader>
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<ProductStore onClicks={clickOpenCart} />} />
+        <Route path="/contactus" element={<ContactUs />} />
+      </Routes>
+      <FooterNavBar></FooterNavBar>
+      {openCart && <Cart onClose={closeCart}></Cart>}
+      {/* </BrowserRouter> */}
     </CartProvider>
   );
 }
