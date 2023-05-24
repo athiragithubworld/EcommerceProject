@@ -13,6 +13,7 @@ import Home from "./Components/Pages/Home";
 import FooterNavBar from "./Components/UI/FooterNavBar";
 import HomeHeader from "./Components/UI/HomeHeader";
 import ContactUs from "./Components/Pages/ContactUs";
+import ProductDetails from "./Components/Pages/ProductDetails";
 
 // import ProductList from "./Components/ProductList";
 
@@ -37,6 +38,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<ProductStore onClicks={clickOpenCart} />} />
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/productDetails/:id" element={<ProductDetails />} />
       </Routes>
       <FooterNavBar></FooterNavBar>
       {openCart && <Cart onClose={closeCart}></Cart>}
