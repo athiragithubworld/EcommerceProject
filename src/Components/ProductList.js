@@ -3,6 +3,7 @@ import classes from "./ProductList.module.css";
 import { Figure, Button, Container, Row, Col } from "react-bootstrap";
 import CartContext from "./store/CartContext";
 import AlertMessage from "./UI/AlertMessage";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const cartcxt = useContext(CartContext);
@@ -66,7 +67,7 @@ const ProductList = () => {
     <div>
       <Container
         className="justify-content-xs-center"
-        style={{ background: "red", marginTop: "10rem" }}
+        style={{ marginTop: "10rem" }}
       >
         <div>
           <Row
@@ -92,12 +93,14 @@ const ProductList = () => {
                   </h3>
 
                   {/* <div className={classes.container}> */}
-                  <img
-                    width={200}
-                    height={200}
-                    alt="200x200"
-                    src={item.imageUrl}
-                  />
+                  <Link to={`/productDetails/${item.id}`}>
+                    <img
+                      width={300}
+                      height={300}
+                      alt="200x200"
+                      src={item.imageUrl}
+                    />
+                  </Link>
                   {/* </div> */}
                   <div
                     style={{
