@@ -1,0 +1,33 @@
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  font-size: 22px;
+}
+
+.image {
+  float: left;
+  margin: 20px 50px;
+  /* border-radius: 50%; */
+  width: 400px;
+  height: 400px;
+}
+
+.paragraph {
+  font-size: 17px;
+  margin: 20px;
+  /* color: #777; */
+}
+
+.rating {
+  /* display: flex; */
+  justify-content: space-between;
+  background-color: green;
+  color: white;
+  padding: 5px;
+  /* border-radius: 45%; */
+}
+
+/* #imageMagnifier {
+  width: 400px;
+  height: 400px;
+} */
