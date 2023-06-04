@@ -5,10 +5,10 @@ import ReactImageMagnify from "react-image-magnify";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const params = useParams();
-  console.log(params);
-  // const imgid = { id };
-  // console.log("id", parseInt(imgid));
+  // const params = useParams();
+  // console.log("a", params);
+  // console.log("b", { id });
+  // console.log("c", id);
 
   const productsArr = [
     {
