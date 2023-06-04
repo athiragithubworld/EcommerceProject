@@ -4,14 +4,17 @@ import { useLocation } from "react-router-dom";
 import ProductList from "../ProductList";
 import classes from "./ProductStore.module.css";
 import CartContext from "../store/CartContext";
+import AuthContext from "../store/AuthContext";
 
 const ProductStore = (props) => {
+  const authcnxt = useContext(AuthContext);
+
   const location = useLocation();
 
   const [hideButton, setHideButton] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (location.pathname === "/store") {
       setHideButton(true);
     } else {
       setHideButton(false);
@@ -48,7 +51,7 @@ const ProductStore = (props) => {
             alignItems: "center",
           }}
         >
-          {hideButton && (
+          {hideButton && authcnxt.isLoggedIn && (
             <Button
               variant="secondary"
               style={{
