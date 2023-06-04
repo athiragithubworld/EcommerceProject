@@ -3,17 +3,25 @@ import { Navbar, Button, Nav, Container } from "react-bootstrap";
 import classes from "./MainHomeHeader.module.css";
 
 import CartContext from "../store/CartContext";
-
+import AuthContext from "../store/AuthContext";
 import { NavLink, useLocation } from "react-router-dom";
 
 const MainHomeHeader = (props) => {
   const cartctx = useContext(CartContext);
+  const authcntx = useContext(AuthContext);
+
+  // const isLoggedIn = authcntx.isLoggedIn;
+
+  const LogoutHandler = () => {
+    authcntx.logout();
+  };
+
   const location = useLocation();
 
   const [hideButton, setHideButton] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (location.pathname === "/store") {
       setHideButton(true);
     } else {
       setHideButton(false);
@@ -38,7 +46,7 @@ const MainHomeHeader = (props) => {
           <Navbar.Collapse className="justify-content-center">
             <Nav.Link
               as={NavLink}
-              to={"/home"}
+              to={"/"}
               style={{
                 color: "white",
                 fontSize: "20px",
@@ -51,7 +59,7 @@ const MainHomeHeader = (props) => {
           <Navbar.Collapse className="justify-content-center">
             <Nav.Link
               as={NavLink}
-              to={"/"}
+              to={"/store"}
               style={{
                 color: "white",
                 fontSize: "20px",
@@ -87,13 +95,30 @@ const MainHomeHeader = (props) => {
                 // left: "50rem",
               }}
             >
-              Contact US
+              CONTACT US
             </Nav.Link>
           </Navbar.Collapse>
+
+          {!authcntx.isLoggedIn && (
+            <Navbar.Collapse className="justify-content-center">
+              <Nav.Link
+                as={NavLink}
+                to={"/login"}
+                style={{
+                  color: "white",
+                  fontSize: "20px",
+                  // position: "fixed",
+                  // left: "50rem",
+                }}
+              >
+                LOGIN
+              </Nav.Link>
+            </Navbar.Collapse>
+          )}
         </Container>
 
         <Nav>
-          {hideButton && (
+          {hideButton && authcntx.isLoggedIn && (
             <Button
               variant="outline-info"
               className={classes.button}
@@ -104,6 +129,15 @@ const MainHomeHeader = (props) => {
           )}
           {hideButton && (
             <span className={classes.totalAmount}>{cartctx.quantity}</span>
+          )}
+          {hideButton && (
+            <Button
+              variant="btn btn-outline-secondary"
+              // className={classes.button}
+              onClick={LogoutHandler}
+            >
+              Logout
+            </Button>
           )}
         </Nav>
       </Navbar>
