@@ -11,7 +11,7 @@ const HomeHeader = () => {
   const [hideButton, setHideButton] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/home") {
+    if (location.pathname === "/") {
       setHideButton(true);
     } else {
       setHideButton(false);
