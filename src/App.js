@@ -21,8 +21,6 @@ function App() {
 
   const logined = authcntx.isLoggedIn;
 
-  console.log("logined", logined);
-
   const [openCart, setOpenCart] = useState(false);
 
   const clickOpenCart = () => {
@@ -35,8 +33,9 @@ function App() {
 
   useEffect(() => {
     if (authcntx.isLoggedIn) {
-      console.log("ansss");
       navigate("/store");
+    } else {
+      closeCart();
     }
   }, [authcntx.isLoggedIn]);
 
