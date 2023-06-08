@@ -2,10 +2,12 @@ import React, { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./LoginPage.module.css";
 import AuthContext from "../store/AuthContext";
+import CartContext from "../store/CartContext";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const authcntx = useContext(AuthContext);
+  const cartcntx = useContext(CartContext);
 
   const [islogin, setIslogin] = useState(true);
 
@@ -56,7 +58,11 @@ const LoginPage = () => {
       })
       .then((data) => {
         console.log(data.idToken);
-        authcntx.login(data.idToken);
+
+        const email = data.email.replace(/[@.]/g, "");
+        authcntx.login(data.idToken, email);
+        // console.log("email", email);
+        // cartcntx.addProduct({ email: email });
         // navigate("/store");
       });
   };
