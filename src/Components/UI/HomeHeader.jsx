@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 const HomeHeader = () => {
   const location = useLocation();
 
-  console.log("loc", location.pathname);
+  // console.log("loc", location.pathname);
 
   const [hideButton, setHideButton] = useState(false);
 
